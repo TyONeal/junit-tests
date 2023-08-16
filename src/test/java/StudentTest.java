@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -36,6 +37,20 @@ public class StudentTest {
     public void testStudentGrades() {
         assertNotNull(createdStudent.getGrades());
         assertEquals(createdStudent.getGradeAverage(), 69.33333333333333, .00000001);
+        assertEquals(createdStudent.getGrades().indexOf(0), -1);
+
+        //update functionality
+        ArrayList<Integer> expectedGrades = new ArrayList<>(Arrays.asList(99, 88, 75));
+        createdStudent.updateGrade(0, 99);
+        assertEquals(createdStudent.getGrades(), expectedGrades);
+
+        //delete functionality
+        ArrayList<Integer> deleteExpectedGrades = new ArrayList<>(Arrays.asList(88, 75));
+       createdStudent.deleteGrade(0);
+        assertEquals(createdStudent.getGrades(), deleteExpectedGrades);
+
     }
+
+
 
 }

@@ -35,4 +35,12 @@ public class Student {
         }
         return (double) total / grades.size();
     }
+
+    public void deleteGrade(int index) {
+        grades.remove(index);
+    }
+
+    public void updateGrade(int index, int grade) {
+        grades.set(index, grade);
+    }
 }
